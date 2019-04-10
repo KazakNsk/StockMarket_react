@@ -1,0 +1,42 @@
+.stock-list-item {
+    display : flex;
+    margin: 15px 0;
+    margin-top: 35px;
+}
+
+.stock-list-item .stock-cover {
+    flex-shrink: 0;
+    width: 50px;
+    margin-right: 30px;
+}
+
+.stock-list-item .stock-cover img {
+    max-width: 90%;
+    border: 2px solid yellowgreen;
+
+}
+
+.stock-list-item .stock-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    align-items: flex-start;
+}
+
+.stock-list-item .stock-details .stock-name {
+    color: yellowgreen;
+}
+
+.stock-list-item .stock-details .stock-title {
+    font-size: 1.4rem;
+}
+
+.stock-list-item .stock-details .stock-prise {
+    font-size: 0.9rem;
+}
+
+.stock-list-item .stock-details .btn {
+    margin-top: 5px;
+    font-size: 55%;
+}
