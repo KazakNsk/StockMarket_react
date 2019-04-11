@@ -1,5 +1,5 @@
-export default function singup(user) {
-    return fetch('https://stocks-mocks.herokuapp.com/api/auth/signup', {
+export default function signUp(user) {
+    return fetch('https://stocks-store-202.herokuapp.com/api/auth/signup', {
         method: 'POST',
         mode: 'cors',
         headers: {

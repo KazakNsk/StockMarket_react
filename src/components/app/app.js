@@ -1,6 +1,6 @@
 import React from 'react';
 import './app.css';
-import PersonInput from '../person-input'
+import PersonInput from '../personInput/personInput'
 
 const App = () => {
     return (
