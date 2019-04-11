@@ -1,26 +1,16 @@
+import { SIGNUP_FETCH_SUCCEEDED, SIGNUP_START } from '../constants/actions';
 
-const stocksLoaded = (newStocks) => {
-    return {
-        type: 'STOCKS_LOADED',
-        payload: newStocks
-    };
-};
+const loginStart = user => ({
+    type: SIGNUP_START,
+    payload: user,
+});
 
-const stosksRequested = () => {
-    return {
-        type: 'STOCKS_REQUSTED'
-    }
-}
-
-const signUp = (newTokens) => {
-    return {
-        type : 'SIGN_UP',
-        payload : newTokens
-    }
-}
+const loginFetchSuccssed = (tokens) => ({
+    type: SIGNUP_FETCH_SUCCEEDED, 
+    payload: tokens 
+});
 
 export {
-    stocksLoaded,
-    stosksRequested,
-    signUp
+    loginStart,
+    loginFetchSuccssed
 };

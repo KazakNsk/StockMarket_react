@@ -1,10 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 import './person-input.css';
 
 import {connect} from 'react-redux';
-import {withStockmarketService} from '../hoc';
-import {signUp} from '../../actions'
+import { loginStart } from '../../actions'
 
 
 
@@ -17,25 +15,10 @@ class PersonInput extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        const { login, password } = this.state;
 
-        const user = {
-            login: this.state.login,
-            password: this.state.password
-        }
-
-        this.setState({
-            login : '',
-            password : ''
-        });
-
-        axios.post(
-            'https://jsonplaceholder.typicode.com/users',
-            {user})
-        .then((data) => {
-            console.log(data.status)
-            signUp(data);
-            })
-    }
+        this.props.dispatch(loginStart({ login, password }))
+    };
 
     handleChangeName = (e) => {
         this.setState({
@@ -68,14 +51,6 @@ class PersonInput extends React.Component {
                 <button type = 'submit' className = 'btn btn-success'>Регистрация</button>
             </form>
         )
-    };  
+    };
 }
-
-const mapStateToProps = ({ tokens }) => {
-    return { tokens };
-}
-
-const mapDispatchToProps = {signUp};
-
-export default withStockmarketService()(
-    connect(mapStateToProps,mapDispatchToProps)(PersonInput));
+export default connect()(PersonInput);

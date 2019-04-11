@@ -1,48 +1,34 @@
+import { SIGNUP_FETCH_SUCCEEDED, SIGNUP_START } from '../constants/actions';
 
 
 const initialState = {
-    stocks: [],
-    loading: true,
+    loading: false,
     tokens: {
-        accessToken:'',
-        refreshToken:''
+        accessToken: '',
+        refreshToken: ''
     },
     isLoggedIn: false
 }
 
 const reducer = (state = initialState, action) => {
-
-    console.log(action.type);
-
-    switch(action.type) {
-        case 'STOCKS_LOADED' :
+    switch (action.type) {
+        case SIGNUP_START:
             return {
                 ...state,
-                stocks : action.payload,
-                loading : false
+                loading: true,
             };
-        case 'STOCKS_REQUSTED' :
+        case SIGNUP_FETCH_SUCCEEDED:
             return {
                 ...state,
-                stocks: [],
-                loading: true
+                loading: false,
+                tokens: action.payload,
+                isLoggedIn: true,
             };
-        case 'SIGN_UP' :
-            return {
-                ...state,
-                tokens : action.payload,
-                isLoggedIn: true
-            }
-        case 'STOCKS_ERROR' :
-            return {
-
-            }
         default :
             return state;
     }
 
-        
-      
+
 };
 
 export default reducer;
